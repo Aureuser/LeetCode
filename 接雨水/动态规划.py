@@ -4,7 +4,7 @@ class Solution:
             return 0
         left = [height[0], ]
         right = [height[-1], ]
-        score = 0
+        area = 0
         for i in range(1, len(height)):
             if height[i] > left[-1]:
                 left.append(height[i])
@@ -15,8 +15,8 @@ class Solution:
             else:
                 right.append(right[-1])
         for i in range(len(right)):
-            score += min(left[i], right[-i - 1]) - height[i]
-        return score
+            area += min(left[i], right[-i - 1]) - height[i]
+        return area
 
 
 if __name__ == '__main__':
@@ -24,4 +24,7 @@ if __name__ == '__main__':
     area = s.trap(
         [1, 2, 3, 5, 3, 3, 2, 4, 23, 2, 4, 43, 2, 3, 45, 23, 4, 325, 234, 43, 223, 354, 345, 3, 23, 5, 54, 23, 234])
     # 1729
+    print(area)
+    area = s.trap([])
+    # 0
     print(area)
