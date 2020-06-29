@@ -1,18 +1,17 @@
 class Solution:
     def trap(self, height: list):
         area = 0
-        if len(height) < 2:
+        if len(height) <= 2:
             return 0
-        lists = [0, 1]
-        for i in range(2, len(height)):
-            print(lists)
-            if len(lists) and height[i] > height[lists[-1]]:
-                top = lists.pop()
-                while len(lists) and height[lists[-1]] <= height[i]:
-                    area += (height[lists[-1]] - top) * (i - lists[-1] - 1)
-                    top = lists.pop()
-                lists.append(top)
-            lists.append(i)
+        FILO = []
+        for i in range(len(height)):
+            while len(FILO) and height[FILO[-1]] < height[i]:
+                top_index = FILO.pop()
+                if not len(FILO): break
+                area += (min(height[i], height[FILO[-1]]) - height[top_index]) * \
+                        (i - FILO[-1] - 1)
+            FILO.append(i)
+
 
         return area
 
