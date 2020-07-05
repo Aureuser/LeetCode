@@ -17,14 +17,21 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     area = s.numSubmat([[1,0,1],[1,1,0],[1,1,0]])
-    # 6
+    # 13
     print(area)
     area = s.numSubmat([[0,1,1,0],[0,1,1,1],[1,1,1,0]])
-    # 4
+    # 24
     print(area)
     area = s.numSubmat([[1,1,1,1,1,1]])
-    # 4
+    # 21
     print(area)
     area = s.numSubmat([[1,0,1],[0,1,0],[1,0,1]])
-    # 4
+    # 5
+    print(area)
+    area = s.numSubmat([[0,1,1,1],[1,1,0,1],[1,1,0,0],[1,1,1,1],[0,1,0,0]])
+    # 41
+    print(area)
+    area = s.numSubmat([[1,1,1,1,0,1,0],[1,1,1,0,0,0,1],[0,1,1,1,1,0,0],[1,1,0,1,1,0,1],
+                        [1,0,0,0,0,0,1],[1,1,0,1,1,1,1],[1,1,0,0,1,1,1]])
+    # 96
     print(area)
